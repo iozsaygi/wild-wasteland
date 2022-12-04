@@ -7,6 +7,7 @@ struct SPlatformWindowProperties
 public:
 	int Width;
 	int Height;
+	int TargetFrameRate;
 	const char* Title;
 };
 

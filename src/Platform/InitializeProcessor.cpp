@@ -2,6 +2,17 @@
 #include "Utilities/Logging/Logger.h"
 #include "InitializeProcessor.h"
 
+bool TryInitializePlatformDependencies()
+{
+	if ( ( SDL_Init( SDL_INIT_VIDEO ) == -1 ) ) 
+	{
+		CLogger::Print( ELogLevel::Error, "Failed to initialize SDL library!" );
+		return false;
+	}
+
+	return true;
+}
+
 bool TryInitializeNativePlatformCard( struct SNativePlatformCard* nativePlatformCard, const struct SPlatformWindowProperties* platformWindowProperties )
 {
 	assert( nativePlatformCard != nullptr );
@@ -23,7 +34,18 @@ bool TryInitializeNativePlatformCard( struct SNativePlatformCard* nativePlatform
 		return false;
 	}
 
-	SDL_Delay( 3000 );
-
 	return true;
+}
+
+void ClearNativePlatformCard( struct SNativePlatformCard* nativePlatformCard )
+{
+	assert( nativePlatformCard != nullptr );
+
+	SDL_DestroyWindow( nativePlatformCard->SDLWindow );
+	SDL_DestroyRenderer( nativePlatformCard->SDLRenderer );
+}
+
+void ClearPlatformDependencies()
+{
+	SDL_Quit();
 }
