@@ -1,24 +1,15 @@
-#include <SDL.h>
-#include <iostream>
+#include "Platform/InitializeProcessor.h"
 
 int main( int argc, char* argv[] ) 
 {
-	SDL_Init( SDL_INIT_VIDEO );
-	SDL_Window* window;
+	struct SNativePlatformCard nativePlatformCard = { nullptr, nullptr };
+	struct SPlatformWindowProperties platformWindowProperties = { 640, 480, "Wild Wasteland" };
 
-	window = SDL_CreateWindow( "An SDL2 window", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 640, 480, SDL_WINDOW_SHOWN );
-
-	if ( window == NULL ) 
+	// Try to initialize native platform card that holds required window and renderer references.
+	if ( TryInitializeNativePlatformCard( &nativePlatformCard, &platformWindowProperties ) )
 	{
-		// In the event that the window could not be made...
-		std::cout << "Could not create window: " << SDL_GetError() << '\n';
-		SDL_Quit();
-		return 1;
+		// TODO: Implement core game loop and start updating the scene.
 	}
-
-	SDL_Delay( 3000 );
-	SDL_DestroyWindow( window );
-	SDL_Quit();
 
 	return 0;
 }
