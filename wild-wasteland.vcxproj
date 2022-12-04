@@ -88,11 +88,14 @@
   <ItemGroup>
     <ClCompile Include="src\Application.cpp" />
     <ClCompile Include="src\Platform\InitializeProcessor.cpp" />
+    <ClCompile Include="src\Utilities\Logging\Logger.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Platform\InitializeProcessor.h" />
     <ClInclude Include="src\Platform\NativePlatformCard.h" />
     <ClInclude Include="src\Platform\PlatformWindowProperties.h" />
+    <ClInclude Include="src\Utilities\Logging\Logger.h" />
+    <ClInclude Include="src\Utilities\Logging\LogLevel.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
