@@ -9,4 +9,4 @@ bool TryInitializeNativePlatformCard( struct SNativePlatformCard* nativePlatform
 void ClearNativePlatformCard( struct SNativePlatformCard* nativePlatformCard );
 void ClearPlatformDependencies();
 
-#endif // !INITIALIZE_PROCESSOR_Hs
+#endif // !INITIALIZE_PROCESSOR_H
