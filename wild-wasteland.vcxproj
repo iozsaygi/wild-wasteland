@@ -93,6 +93,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Engine\Core\Scene.h" />
+    <ClInclude Include="src\Math\VectorFloat2D.h" />
     <ClInclude Include="src\Platform\InitializeProcessor.h" />
     <ClInclude Include="src\Platform\NativePlatformCard.h" />
     <ClInclude Include="src\Platform\PlatformWindowProperties.h" />
